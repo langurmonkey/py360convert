@@ -1,3 +1,22 @@
+
+This is a fork from [sunset1995/py360convert](https://github.com/sunset1995/py360convert).
+
+# Equirectangular to cubemap
+
+Run the following:
+
+``` bash
+equitocubemap path/to/equirectangular.jpg OUTPUT_RESOLUTION
+```
+
+For example,
+
+``` bash
+equitocubemap ~/Pictures/earth-8k.jpg 4096
+```
+
+The output will be the same as the input file with the prefixes `_ft.jpg`, `_bk.jpg`, `_up.jpg`, `_dn.jpg`, `_rt.jpg` and `_lf.jpg`, in the same directory.
+
 # py360convert
 
 **A new library including more fuctionality for 360 is under contruction by my colleague. This repo will be depreciated then.**
