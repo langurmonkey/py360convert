@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 2 ]
+  then
+    echo "Usage:"
+    echo "   equitocubemap path/to/equirectangular.jpg OUTPUT_RES"
+    echo ""
+    echo "   The output is in the same directory as the input image."
+    exit -1
+fi
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+IMG=$1
+RES=$2
+
+$SCRIPT_DIR/convert360 --convert e2c --i $IMG --o $IMG --w $RES --h $RES
