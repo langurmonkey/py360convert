@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
 
-if [ $# -ne 2 ]
+if [ $# -ne 3 ]
   then
     echo "Usage:"
-    echo "   equitocubemap path/to/equirectangular.jpg OUTPUT_RES"
-    echo ""
-    echo "   The output is in the same directory as the input image."
+    echo "   equitocubemap INPUT_IMG OUTPUT_RES OUTPUT_LOC"
+    echo
+    echo "   INPUT_IMG    input equirectangular image location"
+    echo "   OUTPUT_RES   side resolution (width=height) of output cubemap textures"
+    echo "   OUTPUT_LOC   output directory"
+    echo
+    echo "Example:"
+    echo "   equitocubemap ~/Pictures/earth.jpg 4096 ~/Pictures/cubemap/earth"
     exit -1
 fi
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 IMG=$1
 RES=$2
+OUT=$3
 
-$SCRIPT_DIR/convert360 --convert e2c --i $IMG --o $IMG --w $RES --h $RES
+mkdir -p $OUT
+
+FILE_NO_EXT=$(basename "$IMG" | cut -d. -f1)
+
+$SCRIPT_DIR/convert360 --convert e2c --i $IMG --o $OUT/$FILE_NO_EXT --w $RES --h $RES

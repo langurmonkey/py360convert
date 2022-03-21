@@ -6,16 +6,16 @@ This is a fork from [sunset1995/py360convert](https://github.com/sunset1995/py36
 Run the following:
 
 ``` bash
-equitocubemap path/to/equirectangular.jpg OUTPUT_RESOLUTION
+equitocubemap IMAGE CUBEMAP_RESOLUTION OUTPUT_LOCATION
 ```
 
 For example,
 
 ``` bash
-equitocubemap ~/Pictures/earth-8k.jpg 4096
+equitocubemap ~/Pictures/earth-8k.jpg 4096 ~/Pictures/cubemap/
 ```
 
-The output will be the same as the input file with the prefixes `_ft.jpg`, `_bk.jpg`, `_up.jpg`, `_dn.jpg`, `_rt.jpg` and `_lf.jpg`, in the same directory.
+The six cubemap image will be saved in `OUTPUT_LOCATION` with the prefixes `_ft.jpg`, `_bk.jpg`, `_up.jpg`, `_dn.jpg`, `_rt.jpg` and `_lf.jpg`.
 
 # py360convert
 
